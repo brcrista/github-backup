@@ -1,6 +1,11 @@
 # GitHub Backup
 
-Clone all public (and, with a PAT, private) repos for an owner.
+Clone all repos for an authenticated user to a local directory.
+
+## Prequisites
+
+- Install Node.js
+- Run `npm install` in this directory
 
 ## Usage
 
