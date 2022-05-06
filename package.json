@@ -1,0 +1,23 @@
+{
+  "name": "github-backup",
+  "version": "1.0.0",
+  "description": " Clone all repos for a given owner to a local directory",
+  "main": "gh-backup",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brcrista/github-backup.git"
+  },
+  "keywords": [
+    "GitHub",
+    "backup"
+  ],
+  "author": "Brian Cristante",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brcrista/github-backup/issues"
+  },
+  "homepage": "https://github.com/brcrista/github-backup#readme"
+}
