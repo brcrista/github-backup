@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { Octokit } from "octokit";
 
 async function githubBackup(octokit) {
