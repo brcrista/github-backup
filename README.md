@@ -14,5 +14,12 @@ Clone all repos for an authenticated user to a local directory.
 
 ```bash
 export GITHUB_TOKEN='<PAT>'
-./gh-backup
+./gh-backup DESTINATION
+```
+
+### Example
+
+```bash
+export GITHUB_TOKEN='<PAT>'
+./gh-backup "$HOME/Code/gh-backup"
 ```
