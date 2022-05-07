@@ -3,8 +3,12 @@
 import { Octokit } from "octokit";
 
 async function githubBackup(octokit) {
-    const repos = await octokit.rest.repos.listForAuthenticatedUser();
-    console.log(JSON.stringify(repos));
+    const repos = await octokit.paginate("GET /user/repos", {
+        type: "owner",
+        sort: "full_name"
+    });
+
+    console.log(JSON.stringify(repos.map(x => x.full_name)));
 }
 
 async function main() {
