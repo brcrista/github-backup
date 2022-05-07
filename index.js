@@ -9,7 +9,7 @@ async function githubBackup(octokit, destination) {
     });
 
     console.log(`Found ${repositories.length} repositories.`);
-    
+
     for (const repository of repositories) {
         await cloneRepository(repository, destination);
     }
@@ -20,9 +20,9 @@ async function githubBackup(octokit, destination) {
 async function cloneRepository(repository, destination) {
     console.log(`Cloning ${repository.full_name} to ${destination} ...`);
     // Sanitize input
-    const gitURL = new URL(repository.clone_url);
+    const cloneURL = new URL(repository.clone_url);
     const cloneDirectory = path.resolve(destination, repository.name);
-    child_process.execSync(`git clone ${gitURL.toString()} ${cloneDirectory}`);
+    child_process.execSync(`git clone ${cloneURL} ${cloneDirectory}`);
 }
 
 const USAGE = "gh-backup DESTINATION";
@@ -39,7 +39,7 @@ async function main(args) {
         // Get the user's personal access token.
         const pat = process.env["GITHUB_TOKEN"];
         if (!pat) {
-            throw new Error("The `GITHUB_TOKEN` environment variable must be set to a valid PAT.");
+            throw new Error("The `GITHUB_TOKEN` environment variable must be set to a valid personal access token.");
         }
         
         const octokit = new Octokit({
